@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Driveback_DigitalDataLayer>
+            <version>0.0.1</version>
+        </Driveback_DigitalDataLayer>
+    </modules>
+
+    <global>
+        <models>
+            <driveback_ddl>
+                <class>Driveback_DigitalDataLayer_Model</class>
+            </driveback_ddl>
+        </models>
+        <helpers>
+            <driveback_ddl>
+                <class>Driveback_DigitalDataLayer_Helper</class>
+            </driveback_ddl>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <driveback_digital_data_layer>
+                    <file>driveback/ddl.xml</file>
+                </driveback_digital_data_layer>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Driveback_DigitalDataLayer>
+                    <files>
+                        <default>Driveback_DigitalDataLayer.csv</default>
+                    </files>
+                </Driveback_DigitalDataLayer>
+            </modules>
+        </translate>
+        <events>
+            <controller_action_layout_render_before>
+                <observers>
+                    <driveback_ddl_process_listing_data>
+                        <class>driveback_ddl/observer</class>
+                        <method>processListingData</method>
+                    </driveback_ddl_process_listing_data>
+                </observers>
+            </controller_action_layout_render_before>
+        </events>
+    </frontend>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Driveback_DigitalDataLayer>
+                    <files>
+                        <default>Driveback_DigitalDataLayer.csv</default>
+                    </files>
+                </Driveback_DigitalDataLayer>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <default>
+        <driveback_ddl>
+            <settings>
+                <enabled>1</enabled>
+            </settings>
+            <digital_data_manager>
+                <enabled>1</enabled>
+            </digital_data_manager>
+        </driveback_ddl>
+    </default>
+</config>

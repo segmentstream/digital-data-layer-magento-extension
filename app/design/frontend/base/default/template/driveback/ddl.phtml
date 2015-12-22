@@ -1,0 +1,18 @@
+<?php
+/* @var $helper Driveback_DigitalDataLayer_Helper_Data */
+$helper = $this->helper('driveback_ddl');
+
+$ddl = $helper->getDdl();
+?>
+
+<?php if ($helper->digitalDataLayerEnabled()): ?>
+    <script type="text/javascript">
+        (function () {
+            var digitalDataTemp = <?php echo $ddl->getDigitalData(); ?>;
+            window.digitalData = $H(window.digitalData || {}).merge(digitalDataTemp).toObject();
+        })();
+    </script>
+<?php endif;?>
+<?php if ($helper->digitalDataManagerEnabled()): ?>
+    <script type="text/javascript" src="/skin/frontend/base/default/js/driveback/dd-manager.min.js" async defer></script>
+<?php endif;?>

@@ -1,0 +1,14 @@
+{
+  "name": "driveback/digital-data-layer-magento-extension",
+  "type": "magento-module",
+  "description": "Digital Data Layer is and open standard and suggested way to structure the data presented on your pages. Affiliates, remarking or advertising tags become easier to implement. (https://github.com/driveback/digital-data-layer-magento-extension)",
+  "license": "MIT",
+  "authors":[
+    {
+      "name": "Constantine Yurevich"
+    }
+  ],
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  }
+}
