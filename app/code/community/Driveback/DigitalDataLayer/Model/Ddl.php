@@ -54,7 +54,12 @@ class Driveback_DigitalDataLayer_Model_Ddl extends Varien_Object
     public function getDigitalData()
     {
         $data = $this->toArray(array('version', 'page', 'user', 'product', 'cart', 'listing', 'transaction', 'events'));
-        $data = array_filter($data);
+
+        foreach ($data as $key => $value) {
+            if ($key !== 'events' && empty($data[$key])) {
+                unset($data[$key]);
+            }
+        }
 
         $transport = new Varien_Object($data);
         Mage::dispatchEvent('driveback_ddl_before_to_json', array('ddl' => $transport));
@@ -96,10 +101,18 @@ class Driveback_DigitalDataLayer_Model_Ddl extends Varien_Object
             $type = trim(Mage::app()->getRequest()->getRequestUri(), '/');
         }
 
-        $this->setPage(array(
+        $page = array(
             'type' => $type,
             'breadcrumb' => $breadcrumb,
-        ));
+        );
+
+        if ($type === 'category') {
+            $page = array_merge($page, array(
+                'categoryId' => Mage::registry('current_category')->getId()
+            ));
+        }
+
+        $this->setPage($page);
 
         return $this;
     }
