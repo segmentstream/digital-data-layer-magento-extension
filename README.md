@@ -30,7 +30,7 @@ To install the extension:
  
 ### Magento Connect
 
-This is the recommanded way of installing the extenion. Get your extension key on [the extension page](http://todo) and install the extension in your Magento Connect extension manager.
+This is the recommanded way of installing the extenion. Get your extension key on [the extension page](https://www.magentocommerce.com/magento-connect/catalog/product/view/id/30682/) and install the extension in your Magento Connect extension manager.
 
 ## License
 
